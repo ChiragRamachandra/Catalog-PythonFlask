@@ -1,0 +1,44 @@
+{% extends "header.html" %}
+{% block content %}
+    <div class="row">
+      <div align="center" class="col-md-6">
+        <a href="{{url_for('newCategory')}}"><button type="button" class="btn btn-primary" > Add Category </button> </a>
+      </br>
+        <h1 align="center" style="color:Black">CATEGORY</h1>
+
+        <div>
+
+          {% for i in category %}
+
+        			<div class="row">
+        				<div class="col-md-1"></div>
+        					<div class="col-md-10 restaurant-list" align="center">
+        						<h3><a href = "{{url_for('categoryItem', category_id = i.id)}}">{{i.name}}</a></h3>
+        					</div>
+        				<div class="col-md-1"></div>
+        			</div>
+
+        	{% endfor %}
+
+        </div>
+
+      </div>
+      <div class="col-md-6">
+      </br></br>
+          <h1 align="center"> LATEST ITEMS</h1>
+
+          {% for i in items %}
+
+          <div class="row">
+            <div class="col-md-1"></div>
+              <div class="col-md-10 restaurant-list" align="center">
+                <h4>{{i.name}}</h4>
+              </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          {% endfor %}
+
+      </div>
+  </div>
+{% endblock %}

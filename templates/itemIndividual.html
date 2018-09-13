@@ -1,0 +1,33 @@
+{% extends "header.html" %}
+{% block content %}
+  <div class="row">
+      <div align="center" class="col-md-12">
+
+
+        {%if 'username' not in session %}
+
+        {% else %}
+        <a href = "{{url_for('newItem', category_id = category.id)}}"><button type="button" class="btn btn-primary" > Add Items </button> </a>
+        <a href = "{{url_for('editItem', category_id = category.id, item_id=items.id)}}"><button type="button" class="btn btn-primary" > Edit Item </button> </a>
+        <a href = "{{url_for('deleteItem', category_id = category.id, item_id=items.id)}}"><button type="button" class="btn btn-primary" > Delete Item </button> </a>
+        {% endif %}
+
+        <h1 align="center" style="color:Black">Category: {{category.name}}</h1>
+
+        <h3 align= "center"> ITEM LIST: </h3>
+
+        <div class="row">
+          <div class="col-md-1"></div>
+            <div class="col-md-10 restaurant-list" align="center">
+              <h3>{{items.name}}</h3>
+              <h5>description: {{items.description}}</h5>
+            </div>
+          <div class="col-md-1"></div>
+        </div>
+
+
+
+      </div>
+
+  </div>
+{% endblock %}
